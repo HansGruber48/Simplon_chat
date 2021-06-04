@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="fr">
 <table class="table table-hover">
     <thead>
         <tr>
@@ -8,15 +10,17 @@
     </thead>
     <tbody>
         <?php
-        for ($i = 0; $i < 5; $i++) {
+        $messages = findAll();
+        foreach ($messages as $message) {
         ?>
             <tr class="table-light">
-                <td class="col-2">01/06/2021</td>
-                <td class="col-2">camile</td>
-                <td class="col-8">Salut !</td>
+                <td class="col-2"><?= htmlspecialchars($message['date']) ?></td>
+                <td class="col-2"><?= htmlspecialchars($message['pseudo']) ?></td>
+                <td class="col-8"><?= htmlspecialchars($message['content']) ?></td>
             </tr>
         <?php
         }
         ?>
     </tbody>
 </table>
+</html>
